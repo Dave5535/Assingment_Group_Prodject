@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class Ingredient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  int id;
+    private  Integer id;
     @Column(unique = true)
     private String ingredientName;
     
