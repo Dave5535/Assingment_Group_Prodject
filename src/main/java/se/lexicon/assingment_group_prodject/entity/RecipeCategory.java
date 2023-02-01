@@ -16,7 +16,7 @@ public class RecipeCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column
+    @Column(nullable = false)
     private String Category;
     
     public RecipeCategory( String category ) {
