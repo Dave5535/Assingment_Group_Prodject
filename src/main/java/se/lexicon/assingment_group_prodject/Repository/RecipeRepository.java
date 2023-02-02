@@ -22,13 +22,13 @@ public interface RecipeRepository extends CrudRepository<Recipe,Integer> {
 
 
 
-   Set<Recipe> findAllByCategoriesIsContaining(RecipeCategory category);
+   // Set<Recipe> findAllByCategoriesIsContaining(RecipeCategory category);
 
-  /*  @Query("select a from Recipe a where a.categories = :Name")
-Set<Recipe> findAllByCategoriesContaining(@Param("Name") List<RecipeCategory> categories);
+@Query("select a from Recipe a where a.categories = '%Name%'")
+    Set<Recipe> findAllByCategories(@Param("Name") List<RecipeCategory> category);
 
 
 
-   */
+
 
 }

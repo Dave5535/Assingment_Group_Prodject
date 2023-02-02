@@ -32,7 +32,6 @@ public class IngredientRepositoryTest {
     public void testFindByIngredient(){
        Optional<Ingredient> ingredientOptional = testObject.findByIngredientName("Salt");
        assertTrue(ingredientOptional.isPresent());
-
        Ingredient actualData = ingredientOptional.get();
        Ingredient expectedData = createdIngredient;
        assertEquals(expectedData,actualData);
