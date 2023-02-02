@@ -21,11 +21,14 @@ public interface RecipeRepository extends CrudRepository<Recipe,Integer> {
     Optional<Recipe> findByRecipeName(String recipeName);
 
 
-    @Query("select a from Recipe a where a.categories = :cg")
-    Set<Recipe> findAllByCategoriesIsContainingIgnoreCase(@Param("cg") RecipeCategory Categories);
+
+   Set<Recipe> findAllByCategoriesIsContaining(RecipeCategory category);
+
+  /*  @Query("select a from Recipe a where a.categories = :Name")
+Set<Recipe> findAllByCategoriesContaining(@Param("Name") List<RecipeCategory> categories);
 
 
-    @Query("select r from Recipe r where r.categories = :rc")
-    Set<Recipe> findAllByCategoriesIgnoreCase(@Param("rc") List<RecipeCategory> Categories);
+
+   */
 
 }

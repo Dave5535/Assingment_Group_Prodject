@@ -69,21 +69,33 @@ public class RecipeRepositoryTest {
     @Test
     public void TestFindByCategory() {
 
-        Set<Recipe> actualData = testObject.findAllByCategoriesIsContainingIgnoreCase(createdCategory);
+        Set<Recipe> actualData = testObject.findAllByCategoriesIsContaining(createdCategory);
         Set<Recipe> expectedData = new HashSet<>();
         expectedData.add(createdRecipe);
         assertEquals(expectedData, actualData);
-    }
+
+
+        }
 
     @Test
     public void TestFindByCategories() {
+        System.out.println("#########################");
 
-        List<RecipeCategory> listOfCategories = new ArrayList<>();
-        listOfCategories.add(createdCategory);
-        Set<Recipe> actualData = testObject.findAllByCategoriesIgnoreCase(listOfCategories);
-        Set<Recipe> expectedData = new HashSet<>();
-        expectedData.add(createdRecipe);
+        List<RecipeCategory> arrOfCategories = new ArrayList<>();
+        arrOfCategories.add(createdCategory);
+
+        Set<Recipe> recipeSet = testObject.findAllByCategoriesContaining();
+
+        Optional <Recipe> recipeOptional = recipeSet.stream().findFirst();
+        assertTrue(recipeOptional.isPresent());
+        Recipe actualData = recipeOptional.get();
+
+        System.out.println("#########################");
+        Recipe expectedData = createdRecipe;
 
         assertEquals(expectedData, actualData);
+
+
+
     }
 }
