@@ -68,12 +68,12 @@ public class RecipeRepositoryTest {
 
     @Test
     public void TestFindByCategory() {
-/*
+
         Set<Recipe> actualData = testObject.findAllByCategoriesIsContaining(createdCategory);
         Set<Recipe> expectedData = new HashSet<>();
         expectedData.add(createdRecipe);
         assertEquals(expectedData, actualData);
-*/
+
 
         }
 
@@ -81,10 +81,11 @@ public class RecipeRepositoryTest {
     public void TestFindByCategories() {
         System.out.println("#########################");
 
-        List<RecipeCategory> arrOfCategories = new ArrayList<>();
-        arrOfCategories.add(createdCategory);
+Collection<RecipeCategory> categories = new ArrayList<>();
+categories.add(createdCategory);
 
-        Set<Recipe> recipeSet = testObject.findAllByCategories(arrOfCategories);
+
+        Set<Recipe> recipeSet = testObject.findAllByCategories(categories);
 
         Optional <Recipe> recipeOptional = recipeSet.stream().findFirst();
         assertTrue(recipeOptional.isPresent());

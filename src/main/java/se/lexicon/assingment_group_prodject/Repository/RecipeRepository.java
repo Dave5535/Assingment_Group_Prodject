@@ -7,10 +7,7 @@ import org.springframework.stereotype.Repository;
 import se.lexicon.assingment_group_prodject.entity.Recipe;
 import se.lexicon.assingment_group_prodject.entity.RecipeCategory;
 
-import java.util.List;
-import java.util.Locale;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 
 @Repository
@@ -22,10 +19,10 @@ public interface RecipeRepository extends CrudRepository<Recipe,Integer> {
 
 
 
-   // Set<Recipe> findAllByCategoriesIsContaining(RecipeCategory category);
+    Set<Recipe> findAllByCategoriesIsContaining(RecipeCategory category);
 
-@Query("select a from Recipe a where a.categories = '%Name%'")
-    Set<Recipe> findAllByCategories(@Param("Name") List<RecipeCategory> category);
+    @Query("select a from Recipe a where a.categories in :rc")
+    Set<Recipe> findAllByCategories(@Param("rc")Collection<RecipeCategory> categories);
 
 
 
