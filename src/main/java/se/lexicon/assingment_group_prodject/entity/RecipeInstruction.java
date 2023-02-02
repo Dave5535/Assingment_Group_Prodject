@@ -15,8 +15,8 @@ public class RecipeInstruction {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @Column
+    private Integer id;
+    @Column(length = 1500)
     private String instructions;
     
     public RecipeInstruction( String instructions ) {

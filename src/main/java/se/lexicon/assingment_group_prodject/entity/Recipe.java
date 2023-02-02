@@ -21,8 +21,8 @@ public class Recipe {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @Column
+    private Integer id;
+    @Column(nullable = false)
     private String recipeName;
     @OneToMany(mappedBy = "id")
     private List<RecipeIngredient> recipeIngredients = new ArrayList<>();
